@@ -1,0 +1,11 @@
+export {default as cross} from "./cross.svg";
+export {default as menu} from "./menu.svg";
+export {default as hero} from "./hero.jpg";
+export {default as working} from "./working.png";
+export {default as aboutMe} from "./aboutMe.png";
+export {default as kadaster} from "./kadaster.png";
+export {default as asml} from "./asml.png";
+export {default as alliander } from "./alliander.jpeg";
+export {default as klm } from "./klm.png";
+export {default as philips} from "./philips.png";
+export {default as ns } from "./ns.png";

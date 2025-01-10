@@ -1,0 +1,17 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu-list>li{
+    width: 100%;
+    text-align: center;
+}
+.menu-list>li:hover{
+    scale: 105%;
+    border: 1px solid gray;
+}
+
+*{
+    /* outline: 1px solid black; */~
+}
