@@ -29,7 +29,7 @@ const FAQ = () => {
     setShowData( index===showData?"":index )
   }
   return (
-    <div className=" w-full flex flex-col justify-center items-center  py-32 gap-10">
+    <div className=" w-full flex flex-col justify-center items-center bg-gray-900 text-white py-32 gap-10 mt-24">
       <h1 className="text-3xl font-bold ">Most Frequently Asked SAP Questions</h1>
       <p className="text-lg font-semibold">
         To give a crystal-clear picture, here are some of the most frequently
@@ -38,7 +38,7 @@ const FAQ = () => {
       <div className="flex flex-col gap-2 ">
         {question.map((item,index)=>{
             return(
-                <div onClick={()=>handleClick(index)} className=" w-[800px] min-h-12   cursor-pointer bg-red-300 px-2 py-1 rounded-lg " key={index}>
+                <div onClick={()=>handleClick(index)} className=" w-[800px] min-h-6  text-black cursor-pointer bg-white px-2 py-1 rounded-xl " key={index}>
                     <div className="flex justify-between px-10 py-5">
                     <p className="cursor-pointer">{item.title}</p>
                     <img className="w-3" src={menu} alt="" />

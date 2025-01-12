@@ -9,3 +9,4 @@ export {default as alliander } from "./alliander.jpeg";
 export {default as klm } from "./klm.png";
 export {default as philips} from "./philips.png";
 export {default as ns } from "./ns.png";
+export {default as sap } from "./sap.png";

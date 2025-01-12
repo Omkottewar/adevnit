@@ -5,13 +5,13 @@ const Navbar = () => {
     const [menuClicked , isMenuClicked] = useState(false);
 
   return (
-    <div className='bg-black text-white h-16  flex justify-between items-center relative px-10'>
+    <div className='bg-[#111827] text-white h-16  flex justify-between items-center relative shadow-xl  px-10'>
         <div className="">
         viteLogo
         </div>
 
         <div className="max-lg:hidden ">
-            <ul className='flex gap-9'>
+            <ul className= ' navbar__list flex gap-9'>
                 <li>Home</li>
                 <li>Services</li>
                 <li>Industries</li>
@@ -35,7 +35,7 @@ const Navbar = () => {
             </ul>
             <button>contact us</button>
         </div>
-        <button className='max-lg:hidden'>contact us</button>
+        <button className='max-lg:hidden text-lg'>Contact Us</button>
     </div>
   )
 }

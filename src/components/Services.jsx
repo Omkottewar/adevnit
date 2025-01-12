@@ -19,9 +19,9 @@ const Services = () => {
       text: "Leave it to our experts when it comes to SAP system management. Our support team makes sure that system bugs, timely maintenance, and update releases are taken care of. The practice of regarding the clients as partners has helped us earn the title of the best SAP consulting firm.",
     },
   ];
-  return <div className=" w-screen  bg-gray-300 py-24">
+  return <div className=" w-full  bg-gray-900 py-24">
     <div className="mx-auto w-[800px] flex flex-col gap-20 ">
-    <h1 className="text-4xl mx-auto mt-20">Services We Provide</h1>
+    <h1 className="text-4xl mx-auto mt-20 text-white">Services We Provide</h1>
     <div className="grid lg:grid-cols-2 grid-rows-2 gap-10 ">
     {services.map((item,index)=>{
         return(

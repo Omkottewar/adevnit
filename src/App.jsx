@@ -15,7 +15,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="">
+    <div className="h-96">
       <Navbar/>
       <Hero/>
       <WhySAP/>
