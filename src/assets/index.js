@@ -10,3 +10,7 @@ export {default as klm } from "./klm.png";
 export {default as philips} from "./philips.png";
 export {default as ns } from "./ns.png";
 export {default as sap } from "./sap.png";
+export {default as plus } from "./plus.png";
+export {default as minus } from "./minus.png";
+export {default as moon } from "./moon.svg";
+export {default as sun } from "./sun.svg";

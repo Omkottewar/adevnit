@@ -5,7 +5,7 @@ const WhySAP = () => {
   return (
     <div className=" flex justify-between items-center xl:px-[10%] xl:gap-32 my-32">
       <div className="">
-        <img className="w-[600px] object-cover" src={working} alt="" />
+        <img className="w-[600px] object-cover " src={working} alt="" />
       </div>
       <div className="w-[800px] flex flex-col gap-5">
         <h1 className="text-2xl font-bold"> How SAP Consulting Helps </h1>

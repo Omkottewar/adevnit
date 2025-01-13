@@ -1,6 +1,12 @@
-import React from "react";
+import { useState } from "react";
 
 const Services = () => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const handleClick = (index) => {
+    setSelectedIndex(selectedIndex === index ? null : index);
+  };
+
   const services = [
     {
       title: "Migration",
@@ -19,21 +25,31 @@ const Services = () => {
       text: "Leave it to our experts when it comes to SAP system management. Our support team makes sure that system bugs, timely maintenance, and update releases are taken care of. The practice of regarding the clients as partners has helped us earn the title of the best SAP consulting firm.",
     },
   ];
-  return <div className=" w-full  bg-gray-900 py-24">
-    <div className="mx-auto w-[800px] flex flex-col gap-20 ">
-    <h1 className="text-4xl mx-auto mt-20 text-white">Services We Provide</h1>
-    <div className="grid lg:grid-cols-2 grid-rows-2 gap-10 ">
-    {services.map((item,index)=>{
-        return(
-            <div key={index} className=" bg-white w-96 h-96 shadow-xl  text-center flex flex-col p-10 gap-8 items-center justify-center rounded-2xl">
-                <p className="text-3xl font-semibold">{item.title}</p>
-                <p className="text-xl">{item.text}</p>
-            </div>
-        )
-    })}
+
+  return (
+    <div className="w-full py-24 bg-gray-900 text-white flex flex-col gap-20 px-32">
+      <h1 className="text-5xl font-bold " >Our Services</h1>
+      {selectedIndex !== null && (
+        <div className="mt-8 p-4 border rounded-lg bg-gray-100 text-black h-52 flex flex-col justify-between py-12">
+          <h2 className="text-3xl font-bold">{services[selectedIndex].title}</h2>
+          <p className="mt-2">{services[selectedIndex].text}</p>
+        </div>
+      )}
+            <div className="flex gap-20  justify-center  items-center">
+        {services.map((item, index) => (
+          <div
+            key={index}
+            onClick={() => handleClick(index)}
+            className={`cursor-pointer text-2xl font-semibold ${
+              selectedIndex === index ? "border-b-2 border-white" : ""
+            } h-12`}
+          >
+            {item.title}
+          </div>
+        ))}
+      </div>
     </div>
-    </div>
-  </div>;
+  );
 };
 
 export default Services;

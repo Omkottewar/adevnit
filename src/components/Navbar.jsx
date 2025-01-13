@@ -1,43 +1,85 @@
-import React, { useState } from 'react'
-import { cross, menu } from '../assets';
+import React, { useState } from "react";
+import { cross, menu } from "../assets";
 
 const Navbar = () => {
-    const [menuClicked , isMenuClicked] = useState(false);
+  const [menuClicked, setMenuClicked] = useState(false);
+  const [isSubMenu, setIsSubMenu] = useState("");
+
+  const navItems = ["Home", "Services", "Industries", "Blog", "About Us"];
+
+  const handleMouseEnter = (item) => {
+    setIsSubMenu(isSubMenu === item ? "" : item);
+  };
+
+  const handleMouseLeave = () => {
+    setIsSubMenu("");
+  };
 
   return (
-    <div className='bg-[#111827] text-white h-16  flex justify-between items-center relative shadow-xl  px-10'>
-        <div className="">
-        viteLogo
-        </div>
+    <div className="bg-[#111827] text-white h-16 flex justify-between items-center relative shadow-md px-10">
+      {/* Logo */}
+      <div className="text-xl font-bold">Logo</div>
 
-        <div className="max-lg:hidden ">
-            <ul className= ' navbar__list flex gap-9'>
-                <li>Home</li>
-                <li>Services</li>
-                <li>Industries</li>
-                <li>Blog</li>
-                <li>About Us</li>
-            </ul>
-        
-        </div>
-        <div className="flex gap-5  lg:hidden"> 
-           <img className= 'w-8 ' onClick={()=>isMenuClicked(!menuClicked)}  src={menuClicked?cross:menu} alt="" />
-           <ul
+      {/* Desktop Navbar */}
+      <div className="hidden lg:flex">
+        <ul className="flex gap-8">
+          {navItems.map((item, index) => (
+            <div
+              className="relative cursor-pointer group"
+              key={index}
+              onMouseEnter={() => handleMouseEnter(item)}
+              onMouseLeave={handleMouseLeave}
+            >
+              <p className="text-base hover:text-gray-400 transition">{item}</p>
+              <ul
+                className={`${
+                  isSubMenu === item ? "block" : "hidden"
+                } absolute top-10 left-0 bg-white text-black w-48 py-2 shadow-lg rounded-md z-20`}
+              >
+                {[1, 2, 3, 4, 5].map((subItem, i) => (
+                  <li
+                    key={i}
+                    className="px-4 py-2 hover:bg-gray-200 transition"
+                  >
+                    Submenu {subItem}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </ul>
+      </div>
+
+      {/* Mobile Menu */}
+      <div className="flex gap-5 lg:hidden">
+        <img
+          className="w-8 cursor-pointer"
+          onClick={() => setMenuClicked(!menuClicked)}
+          src={menuClicked ? cross : menu}
+          alt="Menu Icon"
+        />
+        <ul
           className={`${
             menuClicked ? "block" : "hidden"
-          } menu-list absolute  top-16 right-0 bg-green-300 w-screen z-50 flex flex-col justify-center items-center  shadow-lg py-2`}
+          } absolute top-16 right-0 bg-[#111827] text-white w-full z-50 flex flex-col py-4 shadow-md`}
         >
-                <li>Home</li>
-                <li>Services</li>
-                <li>Industries</li>
-                <li>Blog</li>
-                <li>About Us</li>
-            </ul>
-            <button>contact us</button>
-        </div>
-        <button className='max-lg:hidden text-lg'>Contact Us</button>
-    </div>
-  )
-}
+          {navItems.map((item, index) => (
+            <li
+              key={index}
+              className="px-6 py-3 hover:bg-gray-800 transition"
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
 
-export default Navbar
+      {/* Contact Us Button */}
+      <button className="hidden lg:block text-white bg-blue-600 px-4 py-2 rounded-md hover:bg-blue-500 transition">
+        Contact Us
+      </button>
+    </div>
+  );
+};
+
+export default Navbar;

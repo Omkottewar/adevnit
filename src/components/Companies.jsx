@@ -12,20 +12,23 @@ const Companies = () => {
   ];
 
   return (
-    <section className="max-w-7xl  mx-auto p-6 rounded-md">
-      <h1 className="text-center text-4xl mb-10 font-bold ">
+    <section className=" mx-auto p-6 rounded-md">
+      <h1 className="text-center text-4xl mb-10 font-bold">
         Clients We Have Served
       </h1>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-12">
-        {companies.map((company, index) => (
-          <div key={index} className="flex justify-center">
-            <img
-              className="w-40 h-20 object-contain"
-              src={company.src}
-              alt={company.alt}
-            />
-          </div>
-        ))}
+      <div className="relative overflow-hidden">
+        {/* Scrollable Container */}
+        <div className="flex gap-32 animate-scroll w-[calc(200%+12rem)] mt-20">
+          {companies.concat(companies).map((company, index) => (
+            <div key={index} className="flex-shrink-0">
+              <img
+                className="w-80 h-20 object-contain"
+                src={company.src}
+                alt={company.alt}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

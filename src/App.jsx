@@ -10,13 +10,15 @@ import AboutMe from './components/AboutMe'
 import WhySAP from './components/WhySAP'
 import Companies from './components/Companies'
 import FAQ from './components/FAQ'
+import DarkMode from './components/DarkMode'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="h-96">
+    <div className=" w-[100%] h-96">
       <Navbar/>
+      <DarkMode/>
       <Hero/>
       <WhySAP/>
       <Services/>

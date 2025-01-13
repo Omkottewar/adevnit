@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { menu } from "../assets";
+import { menu, minus, plus } from "../assets";
 
 const FAQ = () => {
     const [showData,setShowData] = useState("")
@@ -39,9 +39,9 @@ const FAQ = () => {
         {question.map((item,index)=>{
             return(
                 <div onClick={()=>handleClick(index)} className=" w-[800px] min-h-6  text-black cursor-pointer bg-white px-2 py-1 rounded-xl " key={index}>
-                    <div className="flex justify-between px-10 py-5">
-                    <p className="cursor-pointer">{item.title}</p>
-                    <img className="w-3" src={menu} alt="" />
+                    <div className="flex justify-between items-center px-10 py-5">
+                    <p className={`${showData === index ?"font-bold text-xl" :""}`}>{item.title}</p>
+                    <img className="w-5 h-5" src={showData ===index ? minus:plus} alt="" />
                     </div>
                     <p className={`${showData ===index ?"":"hidden"} cursor-default px-10 pb-5 `} >{item.text}</p>
                 </div>
