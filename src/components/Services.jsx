@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "../context/AppContext";
 
 const Services = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
+
+
+  const {isDark} = useContext(AppContext);
 
   const handleClick = (index) => {
     setSelectedIndex(selectedIndex === index ? null : index);
@@ -27,22 +31,22 @@ const Services = () => {
   ];
 
   return (
-    <div className="w-full py-24 bg-gray-900 text-white flex flex-col gap-20 px-32">
+    <div className={`w-full  py-24 ${isDark?"bg-gray-900 text-white" : "bg-gray-100"} flex flex-col gap-20  px-5 lg:px-32`}>
       <h1 className="text-5xl font-bold " >Our Services</h1>
       {selectedIndex !== null && (
-        <div className="mt-8 p-4 border rounded-lg bg-gray-100 text-black h-52 flex flex-col justify-between py-12">
+        <div className= {` w-full   mt-8 p-4 border rounded-lg ${isDark ?"bg-gray-100 text-black" :"bg-white" } lg:h-52 flex flex-col justify-between py-7 `}>
           <h2 className="text-3xl font-bold">{services[selectedIndex].title}</h2>
-          <p className="mt-2">{services[selectedIndex].text}</p>
+          <p className="mt-2 text-lg">{services[selectedIndex].text}</p>
         </div>
       )}
-            <div className="flex gap-20  justify-center  items-center">
+            <div className="grid   lg:grid-rows-1 lg:grid-cols-4 grid-cols-2 grid-row-auto gap-20  justify-center  items-center">
         {services.map((item, index) => (
           <div
             key={index}
             onClick={() => handleClick(index)}
             className={`cursor-pointer text-2xl font-semibold ${
-              selectedIndex === index ? "border-b-2 border-white" : ""
-            } h-12`}
+              selectedIndex === index ? `border-b-2 ${isDark ?"border-white " :"border-gray-900" }` : ""
+            }  h-12 text-center`}
           >
             {item.title}
           </div>

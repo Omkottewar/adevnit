@@ -7,7 +7,7 @@ const Footer = () => {
       <img className="w-32 mb-10" src={""} alt="Company Logo" />
 
       {/* Links Section */}
-      <div className="flex flex-wrap max-lg:flex-col lg:w-[1200px] gap-16">
+      <div className="flex flex-wrap max-lg:flex-col lg:w-[1000px] gap-16">
         <div className="flex flex-col gap-3">
           <h1 className="font-bold text-black text-lg">Products</h1>
           <Link to="/mobile" className="footer-link">

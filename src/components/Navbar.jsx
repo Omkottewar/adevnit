@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { cross, menu } from "../assets";
+import { AppContext } from "../context/AppContext";
 
 const Navbar = () => {
   const [menuClicked, setMenuClicked] = useState(false);
   const [isSubMenu, setIsSubMenu] = useState("");
-
+  const {isDark} =useContext(AppContext)
   const navItems = ["Home", "Services", "Industries", "Blog", "About Us"];
 
   const handleMouseEnter = (item) => {
@@ -16,7 +17,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-[#111827] text-white h-16 flex justify-between items-center relative shadow-md px-10">
+    <div className={`${isDark ? "bg-gray-900 text-white" : "bg-gray-100 text-black"}  h-16 flex justify-between items-center relative shadow-2xl shadow-black px-10`}>
       {/* Logo */}
       <div className="text-xl font-bold">Logo</div>
 

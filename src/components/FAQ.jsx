@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { menu, minus, plus } from "../assets";
+import { AppContext } from "../context/AppContext";
 
 const FAQ = () => {
-    const [showData,setShowData] = useState("")
+    const [showData,setShowData] = useState("");
+    const {isDark} = useContext(AppContext);
   const question = [
     {
       text: "SAP consulting helps businesses with the selection, implementation, training, and support for enterprise resource planning (ERP) software known as SAP. The SAP S/4 HANA is one of the SAP Products.",
@@ -29,16 +31,16 @@ const FAQ = () => {
     setShowData( index===showData?"":index )
   }
   return (
-    <div className=" w-full flex flex-col justify-center items-center bg-gray-900 text-white py-32 gap-10 mt-24">
+    <div className= {`w-full flex flex-col max-lg:px-20 justify-center items-center ${isDark ? "bg-gray-900 text-white":'bg-gray-100 shadow-xl'}   py-32 gap-10 mt-24`} >
       <h1 className="text-3xl font-bold ">Most Frequently Asked SAP Questions</h1>
       <p className="text-lg font-semibold">
         To give a crystal-clear picture, here are some of the most frequently
         asked questions about our services.
       </p>
-      <div className="flex flex-col gap-2 ">
+      <div className="flex lg:w-[800px]  max-lg:w[600px]  flex-col gap-2 ">
         {question.map((item,index)=>{
             return(
-                <div onClick={()=>handleClick(index)} className=" w-[800px] min-h-6  text-black cursor-pointer bg-white px-2 py-1 rounded-xl " key={index}>
+                <div onClick={()=>handleClick(index)} className=" max-sm:w-[400px] max-lg:w-[600px] min-h-6  text-black cursor-pointer bg-white px-2 py-1 rounded-xl " key={index}>
                     <div className="flex justify-between items-center px-10 py-5">
                     <p className={`${showData === index ?"font-bold text-xl" :""}`}>{item.title}</p>
                     <img className="w-5 h-5" src={showData ===index ? minus:plus} alt="" />

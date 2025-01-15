@@ -12,7 +12,7 @@ const Companies = () => {
   ];
 
   return (
-    <section className=" mx-auto p-6 rounded-md">
+    <section className=" mt-20 mx-auto flex flex-col gap-16 p-6 rounded-md">
       <h1 className="text-center text-4xl mb-10 font-bold">
         Clients We Have Served
       </h1>

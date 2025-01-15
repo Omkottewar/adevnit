@@ -12,11 +12,11 @@ const DarkMode = () => {
   return (
     <div
       className={`w-10 h-10 z-20 fixed bottom-10 right-10 rounded-md flex items-center justify-center shadow-lg cursor-pointer ${
-        isDark ? 'bg-gray-800' : 'bg-white'
+        isDark ? 'bg-white' : 'bg-gray-900'
       }`}
       onClick={handleClick}
     >
-      <img src={isDark ? moon : sun} alt="Theme Icon" className="w-6 h-6" />
+      <img src={isDark ? sun : moon} alt="Theme Icon" className="w-6 h-6" />
     </div>
   );
 };
